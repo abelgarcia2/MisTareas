@@ -23,19 +23,26 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- For dark theme utilitie -->
-    <link rel="stylesheet" href="css/nightmodeButton.css" />
+    <!-- Dark/Light theme -->
+    <link rel="stylesheet" href="" id="cssFile"/>
+
+    <!-- Dark/light switch -->
+    <link rel="stylesheet" href="css/switch.css"/>
   </head>
 
   <body>
     <div class="container">
-      <h1 class="text-center">MisTareas</h1>
+      <h1 class="text-center mt-1">MisTareas</h1>
 
-      <!-- Boton modo oscuro -->
-      <!-- <button class="switch" id="switch">
-        <span><i class="far fa-sun"></i></span>
-        <span><i class="far fa-moon"></i></span>
-      </button> -->
+      <!-- Switch dark/light theme-->
+      <div class="switch">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+          <div class="ball"></div>
+        </label>
+      </div>
 
       <!-- Add ToDo -->
       <form id="form" class="form">
@@ -52,88 +59,70 @@
           class="form-control my-2"
           id="input-description"
         />
-        <button class="btn btn-block btn-dark" type="submit">Añadir</button>
+        <button class="btn btn-block btn-submit" type="submit">Añadir</button>
       </form>
 
       <!-- ToDo List-->
-      <div id="todoList" class="mt-3">
+      <div id="todoList" class="mt-4">
         <div
-          class="
-            alert alert-secondary
-            d-flex
-            justify-content-between
-            align-items-center
-          "
+          class="alert d-flex justify-content-between align-items-center task"
         >
           <p class="m-0">Tarea Test #1</p>
           <h3 class="m-0">
-            <i class="fas fa-check-square text-success"></i>
-            <i class="fas fa-pencil-alt text-primary"></i>
-
-            <i class="fas fa-times-circle text-danger"></i>
+            <i class="fas fa-check-square text-success mr-3"></i>
+            <i class="fas fa-edit text-primary mr-3"></i>
+            <i class="fas fa-trash text-danger"></i>
           </h3>
         </div>
         <div
-          class="
-            alert alert-secondary
-            d-flex
-            justify-content-between
-            align-items-center
-          "
+          class="alert d-flex justify-content-between align-items-center task"
         >
           <p class="m-0">Tarea Test #2</p>
           <h3 class="m-0">
-            <i class="fas fa-check-square text-success"></i>
-            <i class="fas fa-pencil-alt text-primary"></i>
-            <i class="fas fa-times-circle text-danger"></i>
+            <i class="fas fa-check-square text-success mr-3"></i>
+            <i class="fas fa-edit text-primary mr-3"></i>
+            <i class="fas fa-trash text-danger"></i>
           </h3>
         </div>
         <div
-          class="
-            alert alert-secondary
-            d-flex
-            justify-content-between
-            align-items-center
-          "
+          class="alert d-flex justify-content-between align-items-center task"
         >
           <p class="m-0">Tarea Test #3</p>
           <h3 class="m-0">
-            <i class="fas fa-check-square text-success"></i>
-            <i class="fas fa-pencil-alt text-primary"></i>
-            <i class="fas fa-times-circle text-danger"></i>
+            <i class="fas fa-check-square text-success mr-3"></i>
+            <i class="fas fa-edit text-primary mr-3"></i>
+            <i class="fas fa-trash text-danger"></i>
           </h3>
         </div>
+      </div>
+
+      <!-- ToDo List completed-->
+      <div id="todoListCompleted" class="mt-5">
+        <h3>Completadas</h3>
+
         <div
-          class="
-            alert alert-secondary
-            d-flex
-            justify-content-between
-            align-items-center
-          "
+          class="alert d-flex justify-content-between align-items-center task"
         >
-          <p class="m-0">Tarea Test #4</p>
+          <p class="m-0">Tarea Test #3</p>
           <h3 class="m-0">
-            <i class="fas fa-check-square text-success"></i>
-            <i class="fas fa-pencil-alt text-primary"></i>
-            <i class="fas fa-times-circle text-danger"></i>
+            <i class="fas fa-undo mr-3 undo"></i>
+            <i class="fas fa-trash text-danger"></i>
           </h3>
         </div>
+
         <div
-          class="
-            alert alert-secondary
-            d-flex
-            justify-content-between
-            align-items-center
-          "
+          class="alert d-flex justify-content-between align-items-center task"
         >
-          <p class="m-0">Tarea Test #5</p>
+          <p class="m-0">Tarea Test #3</p>
           <h3 class="m-0">
-            <i class="fas fa-check-square text-success"></i>
-            <i class="fas fa-pencil-alt text-primary"></i>
-            <i class="fas fa-times-circle text-danger"></i>
+            <i class="fas fa-undo mr-3 undo"></i>
+            <i class="fas fa-trash text-danger"></i>
           </h3>
         </div>
       </div>
     </div>
+
+    <!-- For switch ligh/dark theme -->
+    <script src="theme.js"></script>
   </body>
 </html>

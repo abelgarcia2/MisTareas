@@ -1,0 +1,25 @@
+body {
+  background-color: #1d1d1d;
+}
+
+h1,
+h3 {
+  color: #bdbdbd;
+}
+
+button {
+  background-color: #949393;
+}
+
+.btn-submit {
+  background-color: #6e6e6e;
+  color: #cccaca;
+}
+
+.task {
+  background-color: #cccaca;
+}
+
+.undo {
+  color: #464646;
+}
