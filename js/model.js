@@ -6,8 +6,8 @@ export default class Model {
       this.todos = [
         {
           id: 0,
-          title: 'Así se verá el título de tus tareas',
-          description: 'Así se verá la descripción de tus tareas.',
+          title: 'Hacer la compra',
+          description: 'Agua, leche, aceite, huevos',
           completed: false,
         },
       ];
