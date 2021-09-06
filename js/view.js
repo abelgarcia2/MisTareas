@@ -84,11 +84,11 @@ export default class View {
       });
     div.children[1].appendChild(editBtn);
 
-    const completeBtn = document.createElement('i');
-    completeBtn.classList.add('fas', 'fa-check-square', 'text-success', 'mr-3');
-    completeBtn.setAttribute('role', 'button');
-    completeBtn.onclick = () => this.toggleCompleted(todo.id);
-    div.children[1].appendChild(completeBtn);
+    // const completeBtn = document.createElement('i');
+    // completeBtn.classList.add('fas', 'fa-check-square', 'text-success', 'mr-3');
+    // completeBtn.setAttribute('role', 'button');
+    // completeBtn.onclick = () => this.toggleCompleted(todo.id);
+    // div.children[1].appendChild(completeBtn);
 
     const removeBtn = document.createElement('i');
     removeBtn.classList.add('fas', 'fa-trash', 'text-danger');
