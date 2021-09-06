@@ -9,7 +9,7 @@ body{
 }
 
 .label {
-  background-color: #111;
+  background-color: #3d3d3d;
   display: flex;
   align-items: center;
   justify-content: space-between;

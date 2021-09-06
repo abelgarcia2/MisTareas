@@ -23,3 +23,8 @@ button {
 .undo {
   color: #464646;
 }
+
+.modal-content {
+  background-color: #1d1d1d;
+  color: #bdbdbd;
+}

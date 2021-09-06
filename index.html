@@ -24,24 +24,107 @@
     />
 
     <!-- Dark/Light theme -->
-    <link rel="stylesheet" href="" id="cssFile"/>
+    <link rel="stylesheet" href="" id="cssFile" />
 
     <!-- Dark/light switch -->
-    <link rel="stylesheet" href="css/switch.css"/>
+    <link rel="stylesheet" href="css/switch.css" />
+
+    <style>
+      .alert-danger {
+        background-color: #e74c3c;
+        border: none;
+        color: #ffffff;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
 
   <body>
     <div class="container">
       <h1 class="text-center mt-1">MisTareas</h1>
+      <div class="alert alert-danger d-none" role="alert" id="alert">
+        This alert is completed by js
+      </div>
 
       <!-- Switch dark/light theme-->
       <div class="switch">
-        <input type="checkbox" class="checkbox" id="checkbox">
+        <input type="checkbox" class="checkbox" id="checkbox" />
         <label for="checkbox" class="label">
           <i class="fas fa-sun"></i>
           <i class="fas fa-moon"></i>
           <div class="ball"></div>
         </label>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Tarea</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div
+                class="alert alert-danger d-none"
+                role="alert"
+                id="modal-alert"
+              >
+                A simple danger alert—check it out!
+              </div>
+              <form>
+                <div class="form-group">
+                  <label>Título</label>
+                  <input
+                    id="modal-title"
+                    type="text"
+                    class="form-control"
+                    placeholder="Ir a la compra"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Descripción</label>
+                  <textarea
+                    class="form-control"
+                    id="modal-description"
+                    rows="3"
+                  >
+                  </textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button type="button" class="btn btn-info" id="modal-btn">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Add ToDo -->
@@ -59,70 +142,54 @@
           class="form-control my-2"
           id="input-description"
         />
-        <button class="btn btn-block btn-submit" type="submit">Añadir</button>
+        <button class="btn btn-block btn-submit" type="button" id="add">
+          Añadir
+        </button>
       </form>
 
       <!-- ToDo List-->
-      <div id="todoList" class="mt-4">
-        <div
-          class="alert d-flex justify-content-between align-items-center task"
-        >
-          <p class="m-0">Tarea Test #1</p>
-          <h3 class="m-0">
-            <i class="fas fa-check-square text-success mr-3"></i>
-            <i class="fas fa-edit text-primary mr-3"></i>
-            <i class="fas fa-trash text-danger"></i>
-          </h3>
-        </div>
-        <div
-          class="alert d-flex justify-content-between align-items-center task"
-        >
-          <p class="m-0">Tarea Test #2</p>
-          <h3 class="m-0">
-            <i class="fas fa-check-square text-success mr-3"></i>
-            <i class="fas fa-edit text-primary mr-3"></i>
-            <i class="fas fa-trash text-danger"></i>
-          </h3>
-        </div>
-        <div
-          class="alert d-flex justify-content-between align-items-center task"
-        >
-          <p class="m-0">Tarea Test #3</p>
-          <h3 class="m-0">
-            <i class="fas fa-check-square text-success mr-3"></i>
-            <i class="fas fa-edit text-primary mr-3"></i>
-            <i class="fas fa-trash text-danger"></i>
-          </h3>
-        </div>
-      </div>
+      <div class="mt-4">
+        <ul id="todoList"></ul>
 
-      <!-- ToDo List completed-->
-      <div id="todoListCompleted" class="mt-5">
-        <h3>Completadas</h3>
-
-        <div
-          class="alert d-flex justify-content-between align-items-center task"
-        >
-          <p class="m-0">Tarea Test #3</p>
-          <h3 class="m-0">
-            <i class="fas fa-undo mr-3 undo"></i>
-            <i class="fas fa-trash text-danger"></i>
-          </h3>
-        </div>
-
-        <div
-          class="alert d-flex justify-content-between align-items-center task"
-        >
-          <p class="m-0">Tarea Test #3</p>
-          <h3 class="m-0">
-            <i class="fas fa-undo mr-3 undo"></i>
-            <i class="fas fa-trash text-danger"></i>
-          </h3>
+        <!-- ToDo List completed-->
+        <h3 class="mt-5">Completadas</h3>
+        <div id="todoListCompleted">
+          <div
+            class="alert d-flex justify-content-between align-items-center task"
+          >
+            <div class="flex-column">
+              <b><p class="m-0">Tarea Completada Test #1</p></b>
+              <p class="mt-1 mb-0">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                corrupti labore non eum aperiam, eos nisi nesciunt dignissimos
+                expedita reprehenderit. Obcaecati sit molestiae voluptates
+                quisquam reiciendis, aspernatur modi in magnam.
+              </p>
+            </div>
+            <h3 class="m-0 d-inline-flex">
+              <i class="fas fa-undo mr-3 undo" role="button"></i>
+              <i class="fas fa-trash text-danger" role="button"></i>
+            </h3>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- For switch ligh/dark theme -->
-    <script src="theme.js"></script>
+    <script src="js/theme.js"></script>
+
+    <script src="js/index.js" type="module"></script>
+
+    <!-- Bootstrap 4.6 JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
